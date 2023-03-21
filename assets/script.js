@@ -5,8 +5,7 @@ const slides = [
   },
   {
     image: "slide2.jpg",
-    tagLine:
-      "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
+    tagLine:"Tirages haute définition grand format <span>pour vos bureaux et events</span>",
   },
   {
     image: "slide3.jpg",
@@ -19,6 +18,7 @@ const slides = [
 ];
 
 
+
 // IMG
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
@@ -27,43 +27,52 @@ const slidesLength = slides.length;
 const sliderText = document.querySelector(".slider-text");
 let counter = 0;
 
-
-
+// Création des DOTS 
+const dots = document.querySelector(".dots");
+for (let i = 0; i < slidesLength; i++) {
+  const dot = document.createElement("div");  /*creation div dot*/ 
+  dot.className ="dot"; /* donne la class dot à ma div */
+  dots.appendChild(dot); /* liée l'element parent avec l'élement enfant */
+}
 
 // ARROWS
+const dot = document.querySelectorAll(".dot");
+dot[0].classList.add("dot_selected"); /* ajouter un dot remplis à mon index 0 */
+console.log(dot);
 
 arrowLeft.addEventListener("click", () => {
   if (counter === 0) {
+    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[slidesLength - 1].image;
     sliderText.innerHTML = slides[slidesLength - 1].tagLine;
+    dot[slidesLength-1].classList.add("dot_selected");
     counter = slidesLength - 1
   }
   else {
+    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[counter - 1].image;
     sliderText.innerHTML = slides[counter- 1].tagLine;
+    dot[counter-1].classList.add("dot_selected");
     counter = counter - 1
   }
 })
 
 arrowRight.addEventListener("click", () => {
   if (counter === slidesLength - 1) {
+    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[0].image;
     sliderText.innerHTML = slides[0].tagLine;
-    counter = 0
+    dot[0].classList.add("dot_selected");
+    counter = 0;
+  
   }
   else {
+    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[counter + 1].image;
     sliderText.innerHTML = slides[counter + 1].tagLine;
-    counter = counter + 1
+    dot[counter +1].classList.add("dot_selected");
+    counter = counter + 1;
   }
 })
-
-
-const dots = document.querySelectorAll(".dot");
-const dotSelected = document.querySelector(".dot_selected");
-
-dots.forEach(dot => dot.addEventListener("click", () => {
-  console.log("Click!");
-}));
 
 
