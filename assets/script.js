@@ -19,13 +19,13 @@ const slides = [
 
 
 
-// IMG
+// CONST 
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const image = document.querySelector(".banner-img");
 const slidesLength = slides.length;
 const sliderText = document.querySelector(".slider-text");
-let counter = 0;
+let counter = 0;/* initiée le counter à 0*/
 
 // Création des DOTS 
 const dots = document.querySelector(".dots");
@@ -38,14 +38,14 @@ for (let i = 0; i < slidesLength; i++) {
 // ARROWS
 const dot = document.querySelectorAll(".dot");
 dot[0].classList.add("dot_selected"); /* ajouter un dot remplis à mon index 0 */
-console.log(dot);
 
-arrowLeft.addEventListener("click", () => {
+arrowLeft.addEventListener("click", () => { /*event + Function fléchée*/
+/*Function if else*/
   if (counter === 0) {
-    dot[counter].classList.remove("dot_selected");
-    image.src = "./assets/images/slideshow/" + slides[slidesLength - 1].image;
-    sliderText.innerHTML = slides[slidesLength - 1].tagLine;
-    dot[slidesLength-1].classList.add("dot_selected");
+    dot[counter].classList.remove("dot_selected"); /*remove dot remplis*/
+    image.src = "./assets/images/slideshow/" + slides[slidesLength - 1].image; /*dans le tableau aller chercher l'image 3 (4-1)*/
+    sliderText.innerHTML = slides[slidesLength - 1].tagLine; 
+    dot[slidesLength-1].classList.add("dot_selected"); /*ajout dot remplis*/
     counter = slidesLength - 1
   }
   else {
@@ -57,7 +57,7 @@ arrowLeft.addEventListener("click", () => {
   }
 })
 
-arrowRight.addEventListener("click", () => {
+arrowRight.addEventListener("click", () => { 
   if (counter === slidesLength - 1) {
     dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[0].image;
