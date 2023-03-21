@@ -40,38 +40,36 @@ const dot = document.querySelectorAll(".dot");
 dot[0].classList.add("dot_selected"); /* ajouter un dot remplis à mon index 0 */
 
 arrowLeft.addEventListener("click", () => { /*event + Function fléchée*/
+dot[counter].classList.remove("dot_selected"); /*remove dot remplis*/
 /*Function if else*/
   if (counter === 0) {
-    dot[counter].classList.remove("dot_selected"); /*remove dot remplis*/
     image.src = "./assets/images/slideshow/" + slides[slidesLength - 1].image; /*dans le tableau aller chercher l'image 3 (4-1)*/
     sliderText.innerHTML = slides[slidesLength - 1].tagLine; 
     dot[slidesLength-1].classList.add("dot_selected"); /*ajout dot remplis*/
-    counter = slidesLength - 1
+    counter = slidesLength - 1;
   }
   else {
-    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[counter - 1].image;
     sliderText.innerHTML = slides[counter- 1].tagLine;
     dot[counter-1].classList.add("dot_selected");
-    counter = counter - 1
+    counter = counter - 1;
   }
 })
 
 arrowRight.addEventListener("click", () => { 
+  dot[counter].classList.remove("dot_selected");
   if (counter === slidesLength - 1) {
-    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[0].image;
     sliderText.innerHTML = slides[0].tagLine;
     dot[0].classList.add("dot_selected");
     counter = 0;
-  
   }
+
   else {
-    dot[counter].classList.remove("dot_selected");
     image.src = "./assets/images/slideshow/" + slides[counter + 1].image;
     sliderText.innerHTML = slides[counter + 1].tagLine;
     dot[counter +1].classList.add("dot_selected");
-    counter = counter + 1;
+    counter = counter +1;
   }
 })
 
