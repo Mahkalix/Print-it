@@ -10,5 +10,4 @@ My mission was to develop a carrousel for a printing compagnie.
 </p>
 
 
-### Good visit >  https://mahkalix.github.io/Projet_5/
 
