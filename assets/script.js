@@ -35,6 +35,7 @@ for (let i = 0; i < slidesLength; i++) {
   dots.appendChild(dot); /* liée l'element parent avec l'élement enfant */
 }
 
+
 // ARROWS
 const dot = document.querySelectorAll(".dot");
 dot[0].classList.add("dot_selected"); /* ajouter un dot remplis à mon index 0 */
